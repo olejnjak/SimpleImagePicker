@@ -9,17 +9,20 @@
 import UIKit
 
 public typealias ImagePickerHandler = (UIImage) -> Void
+public typealias PermissionAlertConfiguration = (title: String, message: String, settings: String)
 
 public class ImagePicker {
     
     private let cancelTitle: String
+    private let permissionConfig: PermissionAlertConfiguration
     private let delegateProxy: ImagePickerDelegateProxy
     
     // MARK: Initializers
     
-    public init(cancelTitle: String, handler: @escaping ImagePickerHandler) {
+    public init(cancelTitle: String, permissionConfig: PermissionAlertConfiguration, handler: @escaping ImagePickerHandler) {
         self.delegateProxy = ImagePickerDelegateProxy(handler: handler)
         self.cancelTitle = cancelTitle
+        self.permissionConfig = permissionConfig
     }
     
     // MARK: Public interface
@@ -32,13 +35,20 @@ public class ImagePicker {
         precondition(availableSources.count > 0, "Given sources are not available on current device")
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let imagePickerPresenter: (ImagePickerSource) -> Void = { [unowned self] source in
-            let imagePicker = UIImagePickerController()
-            imagePicker.sourceType = source.source
-            imagePicker.delegate = self.delegateProxy
-            imagePicker.mediaTypes = mediaTypes
+        let imagePickerPresenter: PermissionHandler = { [unowned self] permissionResult in
+            switch permissionResult {
+            case .obtained(let source):
+                let imagePicker = UIImagePickerController()
+                imagePicker.sourceType = source
+                imagePicker.delegate = self.delegateProxy
+                imagePicker.mediaTypes = mediaTypes
+                
+                viewController.present(imagePicker, animated: true, completion: nil)
+            case .error:
+                viewController.present(self.createPermissionAlert(), animated: true, completion: nil)
+            }
             
-            viewController.present(imagePicker, animated: true, completion: nil)
+            
         }
         
         availableSources.forEach { source in
@@ -53,11 +63,30 @@ public class ImagePicker {
     
     // MARK: Private helpers
     
-    private func alertAction(forSource source: ImagePickerSource, handler: @escaping (ImagePickerSource) -> Void) -> UIAlertAction {
-        return UIAlertAction(title: source.title, style: .default) { _ in handler(source) }
+    private func alertAction(forSource source: ImagePickerSource, handler: @escaping PermissionHandler) -> UIAlertAction {
+        return UIAlertAction(title: source.title, style: .default) { _ in
+            PermissionsObtainer.obtainPermissions(forSourceType: source.source, handler: handler)
+        }
     }
     
     private func cancelAction() -> UIAlertAction {
         return UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
+    }
+    
+    private func createPermissionAlert() -> UIAlertController {
+        let alert = UIAlertController(title: permissionConfig.title, message: permissionConfig.message, preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: permissionConfig.settings, style: .default) { _ in
+            let url = URL(string: UIApplicationOpenSettingsURLString)!
+            UIApplication.shared.openURL(url)
+        }
+        
+        alert.addAction(settingsAction)
+        alert.addAction(cancelAction())
+        
+        if #available(iOS 9.0, *) {
+            alert.preferredAction = settingsAction
+        }
+        
+        return alert
     }
 }

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
-    private lazy var imagePicker: ImagePicker = ImagePicker(cancelTitle: "Cancel") { [unowned self] image in
+    private lazy var imagePicker: ImagePicker = ImagePicker(cancelTitle: "Cancel", permissionConfig: PermissionAlertConfiguration(title: "Need more permissions", message: "Give us more permissions to access media", settings: "Settings")) { [unowned self] image in
         self.imageView.image = image
     }
     
