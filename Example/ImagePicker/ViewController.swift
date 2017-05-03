@@ -7,18 +7,23 @@
 //
 
 import UIKit
+import ImagePicker
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var imageView: UIImageView!
+    
+    private lazy var imagePicker: ImagePicker = ImagePicker(cancelTitle: "Cancel") { [unowned self] image in
+        self.imageView.image = image
     }
+    
+    // MARK: UI actions
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func presentButtonTapped(_ sender: UIButton) {
+        let cameraSource = ImagePickerSource(source: .camera, title: "Take from camera")
+        let photoLibrarySource = ImagePickerSource(source: .photoLibrary, title: "Choose from library")
+        
+        imagePicker.presentImagePicker(withSources: [cameraSource, photoLibrarySource], mediaTypes: [ImagePickerMediaType.image], from: self)
     }
-
 }
 

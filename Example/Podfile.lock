@@ -1,0 +1,16 @@
+PODS:
+  - ImagePicker (0.1.0)
+
+DEPENDENCIES:
+  - ImagePicker (from `../`)
+
+EXTERNAL SOURCES:
+  ImagePicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ImagePicker: 6c3c9cc4bca95a9cd0b91ceea0a018a93689e9b0
+
+PODFILE CHECKSUM: 3341754af926e335fa2dec6f382939c8b56a6fae
+
+COCOAPODS: 1.2.1
