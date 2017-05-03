@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/ImagePicker.svg?style=flat)](http://cocoapods.org/pods/ImagePicker)
 [![Platform](https://img.shields.io/cocoapods/p/ImagePicker.svg?style=flat)](http://cocoapods.org/pods/ImagePicker)
 
+Simple iOS component which handles image picking from photo library and camera as well as situations when permissions are not sufficient.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
