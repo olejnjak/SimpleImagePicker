@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import ImagePicker
+import SimpleImagePicker
 
 class Tests: XCTestCase {
     

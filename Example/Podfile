@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'ImagePicker_Example' do
-  pod 'ImagePicker', :path => '../'
+target 'SimpleImagePicker_Example' do
+  pod 'SimpleImagePicker', :path => '../'
 
-  target 'ImagePicker_Tests' do
+  target 'SimpleImagePicker_Tests' do
     inherit! :search_paths
 
     

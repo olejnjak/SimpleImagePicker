@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ImagePicker
+//  SimpleImagePicker
 //
 //  Created by olejnjak on 05/03/2017.
 //  Copyright (c) 2017 olejnjak. All rights reserved.

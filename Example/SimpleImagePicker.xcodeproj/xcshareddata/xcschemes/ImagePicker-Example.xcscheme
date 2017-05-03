@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "ImagePicker_Example.app"
-               BlueprintName = "ImagePicker_Example"
-               ReferencedContainer = "container:ImagePicker.xcodeproj">
+               BuildableName = "SimpleImagePicker_Example.app"
+               BlueprintName = "SimpleImagePicker_Example"
+               ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "ImagePicker_Tests.xctest"
-               BlueprintName = "ImagePicker_Tests"
-               ReferencedContainer = "container:ImagePicker.xcodeproj">
+               BuildableName = "SimpleImagePicker_Tests.xctest"
+               BlueprintName = "SimpleImagePicker_Tests"
+               ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "ImagePicker_Tests.xctest"
-               BlueprintName = "ImagePicker_Tests"
-               ReferencedContainer = "container:ImagePicker.xcodeproj">
+               BuildableName = "SimpleImagePicker_Tests.xctest"
+               BlueprintName = "SimpleImagePicker_Tests"
+               ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "ImagePicker_Example.app"
-            BlueprintName = "ImagePicker_Example"
-            ReferencedContainer = "container:ImagePicker.xcodeproj">
+            BuildableName = "SimpleImagePicker_Example.app"
+            BlueprintName = "SimpleImagePicker_Example"
+            ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "ImagePicker_Example.app"
-            BlueprintName = "ImagePicker_Example"
-            ReferencedContainer = "container:ImagePicker.xcodeproj">
+            BuildableName = "SimpleImagePicker_Example.app"
+            BlueprintName = "SimpleImagePicker_Example"
+            ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "ImagePicker_Example.app"
-            BlueprintName = "ImagePicker_Example"
-            ReferencedContainer = "container:ImagePicker.xcodeproj">
+            BuildableName = "SimpleImagePicker_Example.app"
+            BlueprintName = "SimpleImagePicker_Example"
+            ReferencedContainer = "container:SimpleImagePicker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
