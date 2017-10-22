@@ -77,7 +77,7 @@ public class ImagePicker {
         let alert = UIAlertController(title: permissionConfig.title, message: permissionConfig.message, preferredStyle: .alert)
         let settingsAction = UIAlertAction(title: permissionConfig.settings, style: .default) { _ in
             let url = URL(string: UIApplicationOpenSettingsURLString)!
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.openURL(url)
         }
         
         alert.addAction(settingsAction)
