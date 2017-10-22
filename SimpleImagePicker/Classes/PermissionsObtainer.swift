@@ -44,8 +44,8 @@ internal enum PermissionsObtainer {
     }
     
     private static func requestPermissionForCamera(handler: @escaping PermissionHandler) {
-        let mediaType = AVMediaTypeVideo
-        let status = AVCaptureDevice.authorizationStatus(forMediaType: mediaType)
+        let mediaType = AVMediaType.video
+        let status = AVCaptureDevice.authorizationStatus(for: mediaType)
         
         switch status {
         case .authorized:
@@ -53,7 +53,7 @@ internal enum PermissionsObtainer {
         case .denied, .restricted:
             handler(.error(ImagePermissionError(sourceType: .camera)))
         case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: mediaType) { granted in
+            AVCaptureDevice.requestAccess(for: mediaType) { granted in
                 DispatchQueue.main.async {
                     if granted {
                         handler(.obtained(.camera))
