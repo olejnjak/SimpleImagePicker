@@ -58,9 +58,10 @@ final class ViewController: UIViewController {
     // MARK: UI actions
     
     @objc
-    private func getPhotoButtonTapped() {
+    private func getPhotoButtonTapped(sender: UIButton) {
         let sources = [ImagePickerSource(source: .camera, title: "Camera"), ImagePickerSource(source: .photoLibrary, title: "Photo library")]
-        
+        imagePicker.sourceView = sender
+        imagePicker.sourceRect = sender.bounds
         imagePicker.presentImagePicker(withSources: sources, mediaTypes: [ImagePickerMediaType.image], from: self)
     }
 }

@@ -12,6 +12,9 @@ public typealias ImagePickerHandler = (UIImage) -> Void
 public typealias PermissionAlertConfiguration = (title: String, message: String, settings: String)
 
 public class ImagePicker {
+    public var sourceView: UIView?
+    public var sourceRect = CGRect.zero
+    public var barButtonItem: UIBarButtonItem?
     
     private let cancelTitle: String
     private let permissionConfig: PermissionAlertConfiguration
@@ -42,7 +45,6 @@ public class ImagePicker {
                 imagePicker.sourceType = source
                 imagePicker.delegate = self.delegateProxy
                 imagePicker.mediaTypes = mediaTypes
-                
                 viewController.present(imagePicker, animated: true, completion: nil)
             case .error:
                 viewController.present(self.createPermissionAlert(), animated: true, completion: nil)
@@ -56,6 +58,9 @@ public class ImagePicker {
             alert.addAction(action)
         }
         
+        alert.popoverPresentationController?.sourceRect = sourceRect
+        alert.popoverPresentationController?.sourceView = sourceView
+        alert.popoverPresentationController?.barButtonItem = barButtonItem
         alert.addAction(cancelAction())
         
         viewController.present(alert, animated: true, completion: nil)
