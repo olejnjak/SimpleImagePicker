@@ -15,6 +15,7 @@ public class ImagePicker {
     public var sourceView: UIView?
     public var sourceRect = CGRect.zero
     public var barButtonItem: UIBarButtonItem?
+    public var allowsEditing = false
     
     private let cancelTitle: String
     private let permissionConfig: PermissionAlertConfiguration
@@ -43,6 +44,7 @@ public class ImagePicker {
             case .obtained(let source):
                 let imagePicker = UIImagePickerController()
                 imagePicker.sourceType = source
+                imagePicker.allowsEditing = self.allowsEditing
                 imagePicker.delegate = self.delegateProxy
                 imagePicker.mediaTypes = mediaTypes
                 viewController.present(imagePicker, animated: true, completion: nil)

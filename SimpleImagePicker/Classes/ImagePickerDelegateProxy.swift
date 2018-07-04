@@ -26,7 +26,8 @@ internal class ImagePickerDelegateProxy: NSObject, UIImagePickerControllerDelega
     }
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        let key = picker.allowsEditing ? UIImagePickerControllerEditedImage : UIImagePickerControllerOriginalImage
+        if let image = info[key] as? UIImage {
             handler(image)
         }
         picker.dismiss(animated: true, completion: nil)
