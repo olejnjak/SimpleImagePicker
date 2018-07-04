@@ -21,6 +21,7 @@
 		69B21AD920ECF8BD009746B0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B21AD820ECF8BD009746B0 /* SnapKit.framework */; };
 		69B21ADA20ECF8E7009746B0 /* SimpleImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6996F0D31F9D56480032062D /* SimpleImagePicker.framework */; };
 		69B21ADB20ECF8E7009746B0 /* SimpleImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6996F0D31F9D56480032062D /* SimpleImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69B21AE020ED05E5009746B0 /* SimpleImagePicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 69B21ADF20ED05E5009746B0 /* SimpleImagePicker.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		69B21ACF20ECF825009746B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B21AD520ECF87E009746B0 /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Cartfile.private; sourceTree = "<group>"; };
 		69B21AD820ECF8BD009746B0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		69B21ADF20ED05E5009746B0 /* SimpleImagePicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = SimpleImagePicker.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				69B21AD520ECF87E009746B0 /* Cartfile.private */,
+				69B21ADF20ED05E5009746B0 /* SimpleImagePicker.podspec */,
 				6996F0D51F9D56480032062D /* SimpleImagePicker */,
 				69B21AC220ECF824009746B0 /* SimpleImagePickerExample */,
 				6996F0D41F9D56480032062D /* Products */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B21AE020ED05E5009746B0 /* SimpleImagePicker.podspec in Resources */,
 				69B21AD620ECF87E009746B0 /* Cartfile.private in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
