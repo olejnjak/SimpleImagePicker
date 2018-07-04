@@ -51,9 +51,7 @@ DerivedData
 #
 Pods/
 
-Carthage/Checkouts
-!Carthage/Build
-
+Carthage
 
 #Fastlane
 
@@ -79,6 +77,11 @@ screenshots
 /outputs
 
 #Environment
-Environment/.current_environment
-environment_preprocess.h
-environment.plist
+Environment/Current
+Environment/.current
+Environment/.environment_preprocess.h
+Environment/Environment.swift
+
+#generated files
+*/Model/Generated/*
+!*/Model/Generated/.gitkeep
