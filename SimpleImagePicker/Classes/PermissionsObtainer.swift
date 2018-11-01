@@ -12,16 +12,16 @@ import Photos
 internal typealias PermissionHandler = (PermissionsObtainer.Result) -> Void
 
 internal struct ImagePermissionError: Error {
-    let sourceType: UIImagePickerControllerSourceType
+    let sourceType: UIImagePickerController.SourceType
 }
 
 internal enum PermissionsObtainer {
     enum Result {
-        case obtained(UIImagePickerControllerSourceType)
+        case obtained(UIImagePickerController.SourceType)
         case error(ImagePermissionError)
     }
     
-    static func obtainPermissions(forSourceType sourceType: UIImagePickerControllerSourceType, handler: @escaping PermissionHandler) {
+    static func obtainPermissions(forSourceType sourceType: UIImagePickerController.SourceType, handler: @escaping PermissionHandler) {
         switch sourceType {
         case .photoLibrary, .savedPhotosAlbum:
             return requestPermission(forSourceType: sourceType, handler: handler)
@@ -30,7 +30,7 @@ internal enum PermissionsObtainer {
         }
     }
     
-    private static func requestPermission(forSourceType sourceType: UIImagePickerControllerSourceType, handler: @escaping PermissionHandler) {
+    private static func requestPermission(forSourceType sourceType: UIImagePickerController.SourceType, handler: @escaping PermissionHandler) {
         PHPhotoLibrary.requestAuthorization { status in
             DispatchQueue.main.async {
                 switch status {
