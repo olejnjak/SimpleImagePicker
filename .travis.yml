@@ -1,16 +1,27 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
-osx_image: xcode9.4
+osx_image: xcode10
 language: objective-c
+env:
+  global:
+  - FRAMEWORK_NAME=SimpleImagePicker
 cache:
   directories:
   - Carthage
 before_install:
-  - brew update
-  - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap --platform iOS --cache-builds
+- brew update
+- brew outdated carthage || brew upgrade carthage
 script:
-- set -o pipefail && xcodebuild -scheme SimpleImagePicker -sdk iphonesimulator11.4 -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4' ONLY_ACTIVE_ARCH=NO | xcpretty
+- carthage build --no-skip-current --cache-builds --platform iOS
 - pod lib lint
+before_deploy:
+- carthage archive --output "$FRAMEWORK_NAME.framework.zip"
+after_deploy:
+- pod trunk push
+deploy:
+  provider: releases
+  api_key:
+    secure: oX8FxsROWu0xXfxiAGGBexaNJ1+pheUfEy+uvZnCmNQ/dMBLePKlJSrKdzS+/fsCH3KJZKJ9BF1Bvxsvxv5PRDCXob9I9AJNIG1QXIt4PLByS9C4lDpQR+KlMiHIQ45suPlH6jh+hdzvAFqmxHHrpy+UQP1HYirhGGzoO3g3uAGviSueLssoSZ1BX+pkk2VXjD6KyzDYLSbdwCxpEUTq5lOpSlXynTikHBQi5R0HjBzX6TVLBMUnfkRTuCrD6ZRh8vN1TXMa0LDXaH3Zue2LxyQEPGD6XzGZ2O4tJ7qAqYIRM/xJleol8bkTYBCkI2F/sXVXy15oJKfhwsK3D5ce0WSKTvy1jIPLafVIYP4xumBjpjqj4eN69lbD9Jb4uofUCuMaMD3GKgKJHGsanh+wwEKQe9WGWI8ghAxcXOVMF9b5UdkOomyKoNOnZLZ5F2etbAkvpABaO4ao1y+aOsIl++5KJVOelre86pKJpBbxgEhiI4prRljFqELOnIbeV5wqkCqxNwQTiNVUhjKbE4vZsOn8Ula7fgdet/UzA8YibpJJbpXiPxRGV2/8KOwE6UvCakNjXZd4Se3WzLj22QShgEOSiP7qnEr4eZ2nIswfCI8jp4kLJhrSr21I2bE48kgACj7mpOaa+KgUOH91W4FuBhB4mB/v8k4Q/LJDQUADLoQ=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true    
+  on:
+    repo: olejnjak/SimpleImagePicker
+    tags: true
