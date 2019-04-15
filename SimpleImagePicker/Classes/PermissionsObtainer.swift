@@ -27,6 +27,8 @@ internal enum PermissionsObtainer {
             return requestPermission(forSourceType: sourceType, handler: handler)
         case .camera:
             return requestPermissionForCamera(handler: handler)
+        @unknown default:
+            assertionFailure("unknown source type \(sourceType)")
         }
     }
     
@@ -38,6 +40,8 @@ internal enum PermissionsObtainer {
                     handler(.obtained(sourceType))
                 case .restricted, .denied:
                     handler(.error(ImagePermissionError(sourceType: sourceType)))
+                @unknown default:
+                    assertionFailure("unknown authorization status")
                 }
             }
         }
@@ -64,6 +68,8 @@ internal enum PermissionsObtainer {
                 }
                 
             }
+        @unknown default:
+            assertionFailure("unknown authorization status")
         }
     }
 }
