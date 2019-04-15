@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SimpleImagePicker'
-  s.version          = '2.2'
+  s.version          = '2.3'
   s.summary          = 'Simple iOS UI component for picker images from photo library or camera'
   s.description      = <<-DESC
 Simple iOS UI component for picker images from photo library or camera. 
