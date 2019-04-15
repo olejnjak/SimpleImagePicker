@@ -13,6 +13,6 @@ Also handles situations when user doesn't give enough permissions (let's say it 
   s.source           = { :git => 'https://github.com/olejnjak/SimpleImagePicker.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/olejnjak'
   s.ios.deployment_target = '8.3'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
   s.source_files     = 'SimpleImagePicker/Classes/**/*.swift'
 end
